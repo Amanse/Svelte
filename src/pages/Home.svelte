@@ -13,7 +13,7 @@
   });
 
   function editPost(post) {
-    console.log(post);
+    console.log("BITCH NO EDIT");
   }
 
   function deletePost(id) {
