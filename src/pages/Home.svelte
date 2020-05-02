@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import PostForm from "/home/me/Documents/learning/src/components/PostForm.svelte";
 
-  const apiBaseUrl =
+  const apiBaseUrl = 
     "https://ndb99xkpdk.execute-api.eu-west-2.amazonaws.com/dev";
 
   let posts = [];
@@ -18,6 +18,14 @@
 
   function deletePost(id) {
     console.log(id);
+    fetch(`${apiBaseUrl}`/post/${id}, {
+      method: 'DELETE'
+    }).then(res => {
+      return res.json()
+    })
+      .then(() => {
+        posts = posts.filter(p => p.id !== id);
+      })
   }
 
   function addPost({ detail: post }) {
